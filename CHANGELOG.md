@@ -1,5 +1,12 @@
 
-n.n.n / 2012-03-11 
+0.5.0 / 2012-03-13 
+==================
+
+  * Merge pull request #3 from mugenen/master
+  * fix issues on Windows
+  * [changelog] updated
+
+0.4.4 / 2012-03-11 
 ==================
 
   * [dist] version bump
