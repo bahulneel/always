@@ -12,9 +12,10 @@
     "node":">= 0.6.12 < 0.7.0"
   },
   "dependencies":{
+  },
+  "devDependencies":{
     "vows":"0.6.2"
   },
-  "devDependencies":{},
   "bin": { "always":"./bin/always.js" },
   "licenses":[{
     "type":"MIT",
