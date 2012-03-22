@@ -7,6 +7,11 @@
     "type":"git",
     "url":"git://github.com/edwardhotchkiss/always.git"
   },
+  "homepage": "http://edwardhotchkiss.github.com/always",
+  "contributors": [
+    { "name": "Edward Hotchkiss","email": "edwardhotchkiss@me.com" },
+    { "name": "mugenen","email": "https://twitter.com/#!/Scaled_Wurm" }
+  ],
   "keywords":["always","process","forever","error","uncaught"],
   "engines":{
     "node":">= 0.6.12 < 0.7.0"
@@ -16,7 +21,11 @@
   "devDependencies":{
     "vows":"0.6.2"
   },
+  "bugs": {
+    "url": "https://github.com/edwardhotchkiss/always/issues"
+  },
   "bin": { "always":"./bin/always.js" },
+  "main" : "",
   "licenses":[{
     "type":"MIT",
     "url":"http://github.com/edwardhotchkiss/always/LICENSE"
