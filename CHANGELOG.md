@@ -1,4 +1,10 @@
 
+0.5.2 / 2012-03-22 
+==================
+
+  * [police] npm police - apply(this, [suggestions])
+  * [deps] vows in dev, /me facepalm
+
 0.5.1 / 2012-03-13 
 ==================
 
