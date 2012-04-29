@@ -14,7 +14,7 @@
   ],
   "keywords":["always","process","forever","error","uncaught"],
   "engines":{
-    "node":">= 0.6.12 < 0.7.0"
+    "node":">= 0.4.0 < 0.7.0"
   },
   "dependencies":{
   },
@@ -25,7 +25,6 @@
     "url": "https://github.com/edwardhotchkiss/always/issues"
   },
   "bin": { "always":"./bin/always.js" },
-  "main" : "",
   "licenses":[{
     "type":"MIT",
     "url":"http://github.com/edwardhotchkiss/always/LICENSE"
