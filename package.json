@@ -1,5 +1,5 @@
 {
-  "author":"Edward Hotchkiss <e@ingk.com>",
+  "author":"Edward Hotchkiss <edwardhotchkiss@me.com>",
   "name":"always",
   "description":"CLI Tool to run a NodeJS Process, Restarting on File Changes & Crashes",
   "version":"1.0.0",
