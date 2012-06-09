@@ -1,30 +1,30 @@
 #!/usr/bin/env node
 
-/*!
-  Module dependencies
+/**
+ * @list dependencies
 */
 
 require('../lib/colors');
 
-var fs = require('fs'),
-    util = require('util'),
-    path = require('path'),
-    spawn = require('child_process').spawn,
-    Monitor = require('../lib/monitor'),
-    args = process.argv,
-    managed = [],
-    specials = /^\s+|\s+$/gmi,
-    previousEvent,
-    directory,
-    node = null,
-    file = null,
-    app = null,
-    cleaned,
-    version = 'v0.4.3'
+var fs = require('fs')
+  , util = require('util')
+  , path = require('path')
+  , spawn = require('child_process').spawn
+  , Monitor = require('../lib/monitor')
+  , args = process.argv
+  , managed = []
+  , specials = /^\s+|\s+$/gmi
+  , previousEvent
+  , directory
+  , node = null
+  , file = null
+  , app = null
+  , cleaned
+  , version = 'v1.1.0';
 
-/*!
-  Setup CLI
-*/
+/**
+ * setup CLI
+ **/
 
 if (args.length === 2) {
   logger('No file specified!'.yellow);
@@ -55,9 +55,9 @@ if (args.length === 2) {
   }
 };
 
-/*!
-  @method initalizeDevelopment
-  Initialize Development/Live Editing mode for `always`
+/**
+ * @method initalizeDevelopment
+ * Initialize Development/Live Editing mode for `always`
  */
 
 function initializeDevelopment(){
@@ -85,10 +85,10 @@ function initializeDevelopment(){
   ].join('\n'));
  };
 
-/*!
-  @method displayVersion
-  Display current `always` version #
- */
+/**
+ * @method displayVersion
+ * Display current `always` version #
+ **/
 
 function displayVersion(){
   console.log('');
@@ -96,10 +96,10 @@ function displayVersion(){
   console.log('');
 };
 
-/*!
-  @method npm
-  Test for npm test being used,
-  if so; format the string.
+/**
+ * @method npm
+ * Test for npm test being used,
+ * if so; format the string.
  */
 
 function npm(env) {
@@ -111,10 +111,10 @@ function npm(env) {
   }
 };
 
-/*!
-  @method logger
-  Log methods with nice highlighting
-*/
+/**
+ * @method logger
+ * Log methods with nice highlighting
+ **/
 
 function logger(str, isError){
   isError = isError || false;
@@ -125,10 +125,10 @@ function logger(str, isError){
   }
 };
 
-/*!
-  @method appLogger
-  Log <yourapp.js> methods with green highlighting
-*/
+/**
+ * @method appLogger
+ * Log <yourapp.js> methods with green highlighting
+ **/
 
 function appLogger(str, isError){
   isError = isError || false;
@@ -140,10 +140,10 @@ function appLogger(str, isError){
   }
 };
 
-/*!
-  @method watcher
-  @param {String} file Name of file to monitor for changes
-*/
+/**
+ * @method watcher
+ * @param {String} file Name of file to monitor for changes
+ **/
 
 function initializeFileMonitor(app){
   // setup monitor EE
@@ -154,10 +154,10 @@ function initializeFileMonitor(app){
   });
 };
 
-/*!
-  @method exists
-  Check that file exists
-  @param {String} file File to check exists
+/**
+ * @method exists
+ * Check that file exists
+ * @param {String} file File to check exists
 */
 
 function exists(file){
@@ -175,10 +175,10 @@ function exists(file){
   }
 };
 
-/*!
-  @method start
-  @param {String} app NodeJS file
-*/
+/**
+ * @method start
+ * @param {String} app NodeJS file
+ **/
 
 function start(){
   if (!exists(app)){
@@ -210,18 +210,18 @@ function start(){
   };
 };
 
-/*!
-  @method startDaemon
-  @param {String} app
- */
+/**
+ * @method startDaemon
+ * @param {String} app
+ **/
 
 function startDaemon(app){
   
 };
 
-/*!
-  @method kill
-  Try to kill node process
+/**
+ * @method kill
+ * Try to kill node process
 */
 
 function kill(){
@@ -229,24 +229,25 @@ function kill(){
   node && node.kill();
 };
 
-/*!
-  @method restart
-  Kill process, restart
-*/
+/**
+ * @method restart
+ * Kill process, restart
+ **/
 
 function restart(){
   kill();
   start();
 };
 
-/*!
-  listen for error instance(s)
-  on error, generally restart.
-*/
+/**
+ * @description listen for error instance(s)
+ * on error, generally restart.
+ **/
 
 process.on('exit', function(code){
   kill();
 });
+
 if (process.platform.substr(0,3) !== 'win') {
   // CTRL+C
   process.on('SIGINT', function(){

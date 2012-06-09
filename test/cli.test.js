@@ -1,16 +1,16 @@
 
-/*!
-  Core Modules
- */
+/**
+ * @list dependencies
+ **/
 
-var fs = require('fs'),
-    path = require('path'),
-    vows = require('vows'),
-    assert = require('assert'),
-    spawn = require('child_process').spawn;
+var fs = require('fs')
+  , path = require('path')
+  , vows = require('vows')
+  , assert = require('assert')
+  , spawn = require('child_process').spawn;
 
-/*!
-  Setup
+/**
+ * @description setup
  */
 
 var testApp =
@@ -20,24 +20,24 @@ var testApp =
   '});\n'+
   'app.listen(8000)';
 
-/*!
-  Spawn Config
- */
+/**
+ * @description spawn config
+ **/
 
 var args = [
   path.join(__dirname, '..', 'bin', 'always.js'),
   path.join(__dirname, '..', 'test', 'app.js')
 ];
 
-/*!
-  Vows
- */
+/**
+ * @tests
+ **/
 
 vows.describe('always vows setup & teardown')
 
-/*!
-  Vows Setup
- */
+/**
+ * @tests setup
+ **/
 
 .addBatch({
   'when creating file /test/app.js':{
@@ -50,8 +50,8 @@ vows.describe('always vows setup & teardown')
   }
 })
 
-/*!
-  Test always CLI
+/**
+ * @tests CLI
  */
 
 .addBatch({
@@ -91,9 +91,9 @@ vows.describe('always vows setup & teardown')
   }
 })
 
-/*!
-  Teardown
- */
+/**
+ * @tests teardown
+ **/
 
 .addBatch({
   'when removing /test/app.js':{
