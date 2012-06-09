@@ -1,7 +1,7 @@
 
-# Always - [![Build Status](https://secure.travis-ci.org/edwardhotchkiss/always.png)](http://travis-ci.org/edwardhotchkiss/always)
+# always - [![Build Status](https://secure.travis-ci.org/edwardhotchkiss/always.png)](http://travis-ci.org/edwardhotchkiss/always)
 
-> CLI Tool to run a NodeJS Process, Restarting on File Changes & Crashes
+> CLI Tool to run a Node.JS Process, Restarting on File Changes & Crashes
 
 ## Installation
 
@@ -18,7 +18,7 @@ $ always app.js
 ## Help
 
 ```bash
-Usage: always <options> <app.js>
+Usage: always <app.js>
 => always app.js
 
 Options:
@@ -38,4 +38,4 @@ Copyright (c) 2011, Edward Hotchkiss.
 
 ## Author: [Edward Hotchkiss][0]
 
-[0]: http://ingklabs.com/
+[0]: http://edwardhotchkiss.com/
