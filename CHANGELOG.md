@@ -1,4 +1,24 @@
 
+1.1.1 / 2012-06-10 
+==================
+
+  * [dist] version bump
+  * [contributors] added @MikeMayer
+  * Merge pull request #4 from MikeMayer/master
+
+1.1.0 / 2012-06-09 
+==================
+
+  * which was always undefined and every change spewed a ton of mess to my logger; check if which is truthy instead then log
+  * [style] i prefer **/ to */ now. hmmrrf!
+  * [package] bump engine reqs for node
+  * [LICENSE] new year, new copyright notice
+  * [travis] test only 0.6.x branch
+  * [README] update contact info
+  * [minor] fix email address
+  * [dist] version bump, changelog
+  * [node] test for 0.4.0+ vs. 0.6.0
+
 1.0.0 / 2012-04-29 
 ==================
 
