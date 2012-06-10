@@ -149,7 +149,10 @@ function initializeFileMonitor(app){
   // setup monitor EE
   var monitor = Monitor.create(path.dirname(app));
   monitor.on('change', function(which) {
-    logger(which.green+' has changed, restarting');
+    if (which)
+      logger(which.green+' has changed, restarting');
+    else
+      logger('app has changed, restarting');
     restart();
   });
 };
