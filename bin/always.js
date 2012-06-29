@@ -20,6 +20,7 @@ var fs = require('fs')
   , file = null
   , app = null
   , cleaned
+  , beep = false
   , version = 'v1.1.1';
 
 /**
@@ -53,6 +54,12 @@ if (args.length === 2) {
       initializeDevelopment();
       break;   
   }
+  
+  if(args[3] == 'beep'){
+      beep = true;
+  }
+  
+  
 };
 
 /**
@@ -135,6 +142,9 @@ function appLogger(str, isError){
   var nice = '['+file+']';
   if (isError) {
     console.log(nice.cyan+' '+str.red);
+    if(beep){
+        console.log('\u0007');
+    }
   } else {
     console.log(nice.cyan+' '+str);
   }
