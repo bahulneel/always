@@ -1,4 +1,10 @@
 
+1.1.3 / 2012-06-29 
+==================
+
+  * Merge pull request #7 from surfac/patch-1
+  * beep on errors.
+
 1.1.2 / 2012-06-26 
 ==================
 
