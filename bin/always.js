@@ -73,7 +73,7 @@ function initializeDevelopment(){
   if (path.extname(app) == '.coffee') {
     // The file contains coffee script, use coffee to run it. Does this work on
     // other platforms?
-    parser = process.platform == 'win32' ? 'coffee.cmd' : 'coffee';
+    parser = process.platform.substr(0,3) == 'win' ? 'coffee.cmd' : 'coffee';
   } else {
     // No parser required, use node.
     parser = 'node';
@@ -228,7 +228,7 @@ function start(){
       cleaned = trim(data.toString());
       appLogger(cleaned);
     });
-    node.stderr.on('data', function(data) {
+    node.stderr.on('data', function(data){
       cleaned = trim(data.toString());
       appLogger(cleaned, true);
     });
