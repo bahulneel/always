@@ -18,6 +18,7 @@ var fs = require('fs')
   , node = null
   , file = null
   , app = null
+  , parser = 'node' // will change depending on file extension
   , cleaned
   , beep = false
   , version = 'v1.1.1';
@@ -68,8 +69,18 @@ if (args.length === 2) {
 
 function initializeDevelopment(){
   app = npm(args[2]);
+  
+  if (path.extname(app) == '.coffee') {
+    // The file contains coffee script, use coffee to run it. Does this work on
+    // other platforms?
+    parser = process.platform == 'win32' ? 'coffee.cmd' : 'coffee';
+  } else {
+    // No parser required, use node.
+    parser = 'node';
+  }
+  
   logger(version);
-  logger('Starting ' +file.green +' with Node');
+  logger('Starting '+ file.green +' with '+ parser);
   start();
 };
 
@@ -81,7 +92,7 @@ function initializeDevelopment(){
  function help(){
   console.log([
     '',
-    'Usage: always <options> <app.js>'.cyan,
+    'Usage: always <options> <app.js|app.coffee>'.cyan,
     '=> always app.js'.green,
     '',
     'Options:',
@@ -208,8 +219,9 @@ function trim(str){
 function start(){
   if (!exists(app)){
     return false;
-  } else {
-    node = spawn('node', [app]);
+  } else {    
+    node = spawn(parser, [app]);
+    
     // watch node child process file
     initializeFileMonitor(app);
     node.stdout.on('data', function(data){
