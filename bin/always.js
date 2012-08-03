@@ -13,7 +13,6 @@ var fs = require('fs')
   , Monitor = require('../lib/monitor')
   , args = process.argv
   , managed = []
-  , specials = /^\s+|\s+$/gmi
   , previousEvent
   , directory
   , node = null
@@ -189,6 +188,19 @@ function exists(file){
 };
 
 /**
+ * @method trim
+ * @url http://blog.stevenlevithan.com/archives/faster-trim-javascript
+ * @param {String} str String to trim and clean.
+ **/
+function trim(str){
+  var	str = str.replace(/^\s\s*/, ''),
+		ws = /\s/,
+		i = str.length;
+	while (ws.test(str.charAt(--i)));
+	return str.slice(0, i + 1);
+}
+
+/**
  * @method start
  * @param {String} app NodeJS file
  **/
@@ -201,11 +213,11 @@ function start(){
     // watch node child process file
     initializeFileMonitor(app);
     node.stdout.on('data', function(data){
-      cleaned = data.toString().replace(specials, '');
+      cleaned = trim(data.toString());
       appLogger(cleaned);
     });
-    node.stderr.on('data', function(data){
-      cleaned = data.toString().replace(specials, '');
+    node.stderr.on('data', function(data) {
+      cleaned = trim(data.toString());
       appLogger(cleaned, true);
     });
     node.stderr.on('data', function (data) {
