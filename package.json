@@ -1,37 +1,70 @@
 {
-  "author":"Edward Hotchkiss <edwardhotchkiss@me.com>",
-  "name":"always",
-  "description":"CLI Tool to run a NodeJS Process, Restarting on File Changes & Crashes",
-  "version":"1.1.3",
-  "repository":{
-    "type":"git",
-    "url":"git://github.com/edwardhotchkiss/always.git"
+  "author": {
+    "name": "Edward Hotchkiss",
+    "email": "edwardhotchkiss@me.com"
+  },
+  "name": "always",
+  "description": "CLI Tool to run a NodeJS Process, Restarting on File Changes & Crashes",
+  "version": "1.1.3",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/edwardhotchkiss/always.git"
   },
   "homepage": "http://edwardhotchkiss.github.com/always",
   "contributors": [
-    { "name": "Edward Hotchkiss","email": "edwardhotchkiss@me.com" },
-    { "name": "mugenen","email": "https://twitter.com/#!/Scaled_Wurm" },
-    { "name": "MikeMayer", "github": "https://github.com/MikeMayer" }
+    {
+      "name": "Edward Hotchkiss",
+      "email": "edwardhotchkiss@me.com"
+    },
+    {
+      "name": "mugenen",
+      "email": "https://twitter.com/#!/Scaled_Wurm"
+    },
+    {
+      "name": "MikeMayer"
+    },
+    {
+      "name": "wronex"
+    }
   ],
-  "keywords":["always","process","forever","error","uncaught"],
-  "engines":{
-    "node":">= 0.6.0"
+  "keywords": [
+    "always",
+    "process",
+    "forever",
+    "error",
+    "uncaught"
+  ],
+  "engines": {
+    "node": ">= 0.6.0"
   },
-  "dependencies":{
-  },
-  "devDependencies":{
-    "vows":"0.6.2"
+  "dependencies": {},
+  "devDependencies": {
+    "vows": "0.6.2"
   },
   "bugs": {
     "url": "https://github.com/edwardhotchkiss/always/issues"
   },
-  "bin": { "always":"./bin/always.js" },
-  "licenses":[{
-    "type":"MIT",
-    "url":"http://github.com/edwardhotchkiss/always/LICENSE"
-  }],
-  "preferGlobal":"true",
-  "scripts":{
-    "test":"vows test/*.test.js --spec"
-  }
+  "bin": {
+    "always": "./bin/always.js"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/edwardhotchkiss/always/LICENSE"
+    }
+  ],
+  "preferGlobal": "true",
+  "scripts": {
+    "test": "vows test/*.test.js --spec"
+  },
+  "_id": "always@1.1.3",
+  "optionalDependencies": {},
+  "_engineSupported": true,
+  "_npmVersion": "1.1.4",
+  "_nodeVersion": "v0.6.12",
+  "_defaultsLoaded": true,
+  "dist": {
+    "shasum": "70357f253e133f5efec418603c87d93f8082b594"
+  },
+  "_from": "always@1.1.3"
 }
