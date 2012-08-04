@@ -1,4 +1,17 @@
 
+2.0.0 / 2012-08-04 
+==================
+
+  * [dist] version bump
+  * Merge pull request #8 from wronex/master
+  * Add monitoring of .coffee files
+  * Consistent platform test.
+  * Updated to the correct version of package.json
+  * add support for .coffee files
+  * Added wronex to contributers.
+  * Coding style fix.
+  * Enabled newlines in error messages.
+
 1.1.3 / 2012-06-29 
 ==================
 
