@@ -11,7 +11,8 @@
   "contributors": [
     { "name": "Edward Hotchkiss","email": "edwardhotchkiss@me.com" },
     { "name": "mugenen","email": "https://twitter.com/#!/Scaled_Wurm" },
-    { "name": "MikeMayer", "github": "https://github.com/MikeMayer" }
+    { "name": "MikeMayer", "github": "https://github.com/MikeMayer" },
+    { "name": "Wronex", "github": "https://github.com/wronex" }
   ],
   "keywords":["always","process","forever","error","uncaught"],
   "engines":{

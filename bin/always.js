@@ -13,12 +13,12 @@ var fs = require('fs')
   , Monitor = require('../lib/monitor')
   , args = process.argv
   , managed = []
-  , specials = /^\s+|\s+$/gmi
   , previousEvent
   , directory
   , node = null
   , file = null
   , app = null
+  , parser = 'node' // will change depending on file extension
   , cleaned
   , beep = false
   , version = 'v1.1.1';
@@ -69,8 +69,18 @@ if (args.length === 2) {
 
 function initializeDevelopment(){
   app = npm(args[2]);
+  
+  if (path.extname(app) == '.coffee') {
+    // The file contains coffee script, use coffee to run it. Does this work on
+    // other platforms?
+    parser = process.platform.substr(0,3) == 'win' ? 'coffee.cmd' : 'coffee';
+  } else {
+    // No parser required, use node.
+    parser = 'node';
+  }
+  
   logger(version);
-  logger('Starting ' +file.green +' with Node');
+  logger('Starting '+ file.green +' with '+ parser);
   start();
 };
 
@@ -82,7 +92,7 @@ function initializeDevelopment(){
  function help(){
   console.log([
     '',
-    'Usage: always <options> <app.js>'.cyan,
+    'Usage: always <options> <app.js|app.coffee>'.cyan,
     '=> always app.js'.green,
     '',
     'Options:',
@@ -189,6 +199,19 @@ function exists(file){
 };
 
 /**
+ * @method trim
+ * @url http://blog.stevenlevithan.com/archives/faster-trim-javascript
+ * @param {String} str String to trim and clean.
+ **/
+function trim(str){
+  var str = str.replace(/^\s\s*/, ''),
+      ws = /\s/,
+	  i = str.length;
+  while (ws.test(str.charAt(--i)));
+  return str.slice(0, i + 1);
+}
+
+/**
  * @method start
  * @param {String} app NodeJS file
  **/
@@ -196,16 +219,17 @@ function exists(file){
 function start(){
   if (!exists(app)){
     return false;
-  } else {
-    node = spawn('node', [app]);
+  } else {    
+    node = spawn(parser, [app]);
+    
     // watch node child process file
     initializeFileMonitor(app);
     node.stdout.on('data', function(data){
-      cleaned = data.toString().replace(specials, '');
+      cleaned = trim(data.toString());
       appLogger(cleaned);
     });
     node.stderr.on('data', function(data){
-      cleaned = data.toString().replace(specials, '');
+      cleaned = trim(data.toString());
       appLogger(cleaned, true);
     });
     node.stderr.on('data', function (data) {
