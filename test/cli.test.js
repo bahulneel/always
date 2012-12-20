@@ -15,8 +15,10 @@ var fs = require('fs')
 
 var testApp =
   'var http = require(\'http\');\n'+
+  'console.log(process.argv.join(" "));\n' +
   'var app = http.createServer(function(request, response) {\n'+
-  '  response.end(\'hi\');\n'+
+  '  console.log(process.argv);\n'+ 
+  '  response.end("hi");\n'+
   '});\n'+
   'app.listen(8000)';
 
@@ -58,7 +60,7 @@ vows.describe('always vows setup & teardown')
   'when running `always start app.js`':{
     topic:function() {
       var self = this;
-      var child = spawn('node', args),
+      var child = spawn('node', args.concat(["--myarg", "blubb"])),
         stdout = '',
         stderr = '';
         exitCode = 0;
@@ -84,6 +86,7 @@ vows.describe('always vows setup & teardown')
     },
     'stdout should not be an empty value':function(error, exitCode, stdout, stderr){
       assert.notEqual(stdout, '');
+      assert.match(stdout, /.*\-\-myarg blubb/);
     },
     'stderr should be an empty value':function(error, exitCode, stdout, stderr){
       assert.equal(stderr, '');
