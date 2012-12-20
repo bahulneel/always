@@ -1,4 +1,11 @@
 
+2.2.0 / 2012-12-20 
+==================
+
+  * [node, travis] >= 0.8.0
+  * Merge pull request #10 from b1-systems/master
+  * allow arguments to be passed to script
+
 2.0.0 / 2012-08-04 
 ==================
 
