@@ -18,6 +18,7 @@ var fs = require('fs')
   , node = null
   , file = null
   , app = null
+  , app_args = []
   , parser = 'node' // will change depending on file extension
   , cleaned
   , beep = false
@@ -27,39 +28,38 @@ var fs = require('fs')
  * setup CLI
  **/
 
-if (args.length === 2) {
+if (args.length < 3) {
   logger('No file specified!'.yellow);
   process.exit(0);
 } else {
-  switch(args[2]) {
-    case 'help':
-    case '-h':
-    case '--help':
-      help();
-      break;
-    case 'version':
-    case '-v':
-    case '--version':
-      displayVersion();
-      break; 
-    case 'start':
-      if (args[3] === undefined){
-        logger('No file specified!'.yellow);
-        process.exit(0);
-      } else {
-        startDaemon(args[3]);
-      }
-      break;
-    default:
-      initializeDevelopment();
-      break;   
+  var done = false
+  for(i=2; i < args.length; i += 1) {
+    if(args[i] === undefined) {
+        break
+    }
+    if(done) {
+        app_args.push(args[i]);
+        continue
+    }
+    switch(args[i]) {
+        case '-h':
+        case '--help':
+        help();
+        break;
+        case '-v':
+        case '--version':
+        displayVersion();
+        break; 
+        case '-b':
+        case '--beep':
+        beep = true;
+        break; 
+        default:
+        app = args[i];
+        done = true;
+    }
   }
-  
-  if(args[3] == 'beep'){
-      beep = true;
-  }
-  
-  
+  initializeDevelopment();
 };
 
 /**
@@ -68,7 +68,7 @@ if (args.length === 2) {
  */
 
 function initializeDevelopment(){
-  app = npm(args[2]);
+  app = npm(app);
   
   if (path.extname(app) == '.coffee') {
     // The file contains coffee script, use coffee to run it. Does this work on
@@ -97,6 +97,7 @@ function initializeDevelopment(){
     '',
     'Options:',
     '  -v, --version    current `always` version',
+    '  -b, --beep       beep when restarting',
     '  -h, --help       help!',
     ''
   ].join('\n'));
@@ -220,7 +221,7 @@ function start(){
   if (!exists(app)){
     return false;
   } else {    
-    node = spawn(parser, [app]);
+    node = spawn(parser, [app].concat(app_args));
     
     // watch node child process file
     initializeFileMonitor(app);

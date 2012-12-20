@@ -2,7 +2,7 @@
   "author":"Edward Hotchkiss <edwardhotchkiss@me.com>",
   "name":"always",
   "description":"CLI Tool to run a NodeJS Process, Restarting on File Changes & Crashes",
-  "version":"2.0.0",
+  "version":"2.1.0",
   "repository":{
     "type":"git",
     "url":"git://github.com/edwardhotchkiss/always.git"
@@ -12,7 +12,8 @@
     { "name": "Edward Hotchkiss","email": "edwardhotchkiss@me.com" },
     { "name": "mugenen","email": "https://twitter.com/#!/Scaled_Wurm" },
     { "name": "MikeMayer", "github": "https://github.com/MikeMayer" },
-    { "name": "Wronex", "github": "https://github.com/wronex" }
+    { "name": "Wronex", "github": "https://github.com/wronex" },
+    { "name": "poelzi", "github": "https://github.com/poelzi" }
   ],
   "keywords":["always","process","forever","error","uncaught"],
   "engines":{
