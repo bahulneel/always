@@ -39,3 +39,7 @@ Copyright (c) 2011, Edward Hotchkiss.
 ## Author: [Edward Hotchkiss][0]
 
 [0]: http://edwardhotchkiss.com/
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/edwardhotchkiss/always/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
