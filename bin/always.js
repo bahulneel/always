@@ -22,6 +22,7 @@ var fs = require('fs')
   , parser = 'node' // will change depending on file extension
   , cleaned
   , beep = false
+  , default_extension = '.js'
   , version = 'v1.1.1';
 
 /**
@@ -194,6 +195,9 @@ function exists(file){
       return true;
     }
   } catch (error) {
+    if (path.extname(file) === '') {
+      return exists(file + default_extension);
+    }
     logger(error.toString(), true);  
     return false;
   }
