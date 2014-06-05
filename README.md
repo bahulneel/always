@@ -1,5 +1,5 @@
 
-# always - [![Build Status](https://secure.travis-ci.org/edwardhotchkiss/always.png)](http://travis-ci.org/edwardhotchkiss/always)
+# always - [![Build Status](https://secure.travis-ci.org/edwardhotchkiss/always.png)](http://travis-ci.org/edwardhotchkiss/always) [![Git Tip](http://img.shields.io/gittip/edwardhotchkiss.svg)](https://www.gittip.com/edwardhotchkiss/) 
 
 > CLI Tool to run a Node.JS Process, Restarting on File Changes & Crashes
 
