@@ -244,8 +244,10 @@ function start(){
       }
     });
     node.on('exit', function (code, signal) {
-      logger('child exited unexpectedly, restarting '+app.green, true);
-      restart();
+      if (signal !== 'SIGTERM' || (code > 0 && code < 127)) {
+        logger('child exited unexpectedly, restarting '+app.green, true);
+        restart();
+      }
     });
   };
 };
