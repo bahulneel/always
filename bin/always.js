@@ -244,10 +244,8 @@ function start(){
       }
     });
     node.on('exit', function (code, signal) {
-      if (signal == 'SIGUSR2') {
-        logger('signal interuption, restarting '+app.green, true);
-        restart();
-      };
+      logger('child exited unexpectedly, restarting '+app.green, true);
+      restart();
     });
   };
 };
