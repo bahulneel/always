@@ -169,6 +169,7 @@ function appLogger(str, isError){
 
 function initializeFileMonitor(app){
   // setup monitor EE
+  return;
   var monitor = Monitor.create(path.dirname(app));
   monitor.on('change', function(which) {
     if (which)

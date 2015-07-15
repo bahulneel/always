@@ -2,7 +2,7 @@
   "author":"Edward Hotchkiss <edwardhotchkiss@me.com>",
   "name":"always",
   "description":"CLI Tool to run a NodeJS Process, Restarting on File Changes & Crashes",
-  "version":"2.3.0",
+  "version":"2.3.1",
   "repository":{
     "type":"git",
     "url":"git://github.com/edwardhotchkiss/always.git"
